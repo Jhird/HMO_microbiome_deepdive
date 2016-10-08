@@ -1,3 +1,8 @@
+### usage
+# $ python uniprot_parse.py EGFR
+# returns all relevant uniprot text and some gibberish
+# TODO: if deepdive is confounded by the gibberish, we can parse more carefully with beatifulsoup
+
 from bs4 import BeautifulSoup
 import urllib
 import sys
