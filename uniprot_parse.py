@@ -10,6 +10,10 @@ import mygene
 
 gene=sys.argv[1]
 
+######
+# set manually
+justDescription
+
 # query mygene for the uniprot id
 mg = mygene.MyGeneInfo()
 for q in mg.query(gene,species='human',fields='uniprot')['hits']:
@@ -22,10 +26,11 @@ print uniprot_id
 target_url='http://www.uniprot.org/uniprot/'+uniprot_id
 txt = urllib.urlopen(target_url).read()
 soup = BeautifulSoup(txt, 'html.parser') #.get_text()
-#print soup
-out=''
-out += soup.find_all('meta',{'name':'description'})
-#out += soup.find_all('span',{'class':'attribution ECO269'}) # not specific enough for PTM
-#out += soup.find_all('div',{'class':'annotation','property':'schema:hasPart'}) # not specific enough for interactions
 
-print out
+if justDescription:
+	print soup.find_all('meta',{'name':'description'})
+else:
+	out=''
+	for i in soup.find_all('div',{'class':'annotation','property':'schema:hasPart','typeof':'schema:creativeWork'}):
+		out+=i.find_all('span',{'property':'schema:text'})
+	print out
