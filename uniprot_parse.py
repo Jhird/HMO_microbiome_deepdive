@@ -21,6 +21,11 @@ print uniprot_id
 # query uniprot for the relevant text
 target_url='http://www.uniprot.org/uniprot/'+uniprot_id
 txt = urllib.urlopen(target_url).read()
-soup = BeautifulSoup(txt, 'html.parser').get_text()
-print soup
+soup = BeautifulSoup(txt, 'html.parser') #.get_text()
+#print soup
+out=''
+out += soup.find_all('meta',{'name':'description'})
+#out += soup.find_all('span',{'class':'attribution ECO269'}) # not specific enough for PTM
+#out += soup.find_all('div',{'class':'annotation','property':'schema:hasPart'}) # not specific enough for interactions
 
+print out
