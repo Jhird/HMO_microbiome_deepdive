@@ -3,18 +3,23 @@ What genes, HMOs, bacteria have been found to be associated with NEC?
 How do the genes, HMOs and bacteria associated with NEC interact with eachother to make a cohesive underlying biological story?
 
 Relations
+
+1) hmo - bac relations; do hmos interact directly with bacteria?
+hmo_i inhibits bac_j
+bac_i inhibited by hmo_j
+bac_i consumes hmo_j
+hmo_i competitively inhibits bac_i
+hmo_i competitively inhibits __ receptor of bac_i
+
+2) gene - hmo relations; do hmos interact (in)directly with cells
+gene_i competes for hmo_j
+gene_i is necessary for hmo_j synthesis
+
+3) bac-bac and gene-gene; do indirect gene and/or bacteria interactions modulate the hmo effects
 gene_i upregulates gene_j
 gene_i downregulates gene_j
 gene_i expresses gene_j
 gene_i binds gene_j
-
-
-hmo_i precursor hmo_j
-hmo_i product hmo_j
-hmo_i product hmo_j and ___
-
-gene_i competes for hmo_j
-gene_i is necessary for hmo_j synthesis
 
 bac_i competes with bac_j
 bac_i mutualism bac_j
@@ -22,11 +27,11 @@ bac_i parasitism bac_j
 bac_i synnecrosism bac_j
 bac_i symbiosis bac_j
 
-hmo_i inhibits bac_j
-bac_i inhibited by hmo_j
-bac_i consumes hmo_j
-hmo_i competitively inhibits bac_i
-hmo_i competitively inhibits __ receptor of bac_i
+2) hmo - hmo relations; how does the competative nature of biosynthesis regulate hmo availibility?
+hmo_i precursor hmo_j
+hmo_i product hmo_j
+hmo_i product hmo_j and ___
 
+5) catch-all
 x activates y
 x inhibits y
